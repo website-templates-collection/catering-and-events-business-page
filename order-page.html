@@ -147,6 +147,12 @@
       .hero-sub { font-size: 1rem; padding-left: 0.8rem; }
       .section-title { font-size: 2rem; }
     }
+    .add-order-btn.selected i{
+      visibility: visible !important;
+    }
+    .add-order-btn i{
+      visibility: hidden;
+    }
   </style>
 </head>
 <body>
@@ -191,35 +197,63 @@
           <div></div>
       </div>
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4"> -->
+      <div class="row g-4">
         <!-- Card 1 -->
         <div class="col">
           <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=80&auto=format&fit=crop" 
+            <img src="./assets/20564329779_b9af3e0191_o.webp" 
                  class="card-img-top" alt="Indian thali spread" loading="lazy">
             <div class="card-body">
               <h5 class="card-title"><i class="bi bi-droplet me-2" style="color:#b45f3b;"></i>Onam Sadhya</h5>
               <p class="card-text">Traditional Onam Sadhya.</p>
               <p class="card-text">Price : 1600 (For 5 people)</p>
-              <small>Enter quantity (No of Meals)</small>
-              <input type="number" class="form-control mb-2" placeholder="Enter quantity (No of Meals)" min="1">
-              <button class="btn btn-primary w-100">Add to Order</button>
+              <small>Quantity (No of Meals)</small>
+              <!-- <input type="number" class="form-control mb-2" placeholder="Enter quantity (No of Meals)" min="1"> -->
+              <input id="sadhyaCount" type="number" class="form-control mb-2" placeholder="1" min="1" value="1">
+              <button class="add-order-btn btn btn-primary w-100" onclick="addToOrderSadhya(this,event)">
+                <span class="btn-title">Add to Order</span> <i class="bi bi-check-circle fs-5 ms-1"></i>
+              </button>
             </div>
           </div>
         </div>
         <!-- Card 2 -->
         <div class="col">
           <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500&q=80&auto=format&fit=crop" 
+            <img src="./assets/payasam.jpg" 
                  class="card-img-top" alt="Biryani and kebabs" loading="lazy">
             <div class="card-body">
-              <h5 class="card-title"><i class="bi bi-fire me-2" style="color:#b45f3b;"></i> Payasam</h5>
+              <h5 class="card-title"><i class="bi bi-fire me-2" style="color:#b45f3b;"></i>Palada Payasam</h5>
               <p class="card-text">Palada, Paripp</p>
               <p class="card-text">Price : 240 -  (1 Ltr)</p>
-              <small>Enter quantity (in Ltr)</small>
-              <input type="number" class="form-control mb-2" placeholder="Enter quantity" min="1">
+              <small>Quantity (in Ltr)</small>
+              <!-- <input type="number" class="form-control mb-2" placeholder="Enter quantity" min="1"> -->
+              <input id="paladaCount" type="number" class="form-control mb-2" placeholder="1" min="1" value="1">
               <!-- <span> Ltr</span>   -->
-              <button class="btn btn-primary w-100">Add to Order</button>
+              <button class="add-order-btn btn btn-primary w-100" onclick="addToOrderPalada(this,event)">
+                <span class="btn-title">Add to Order</span> <i class="bi bi-check-circle fs-5 ms-1"></i>
+
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="./assets/payasam.jpg" 
+                 class="card-img-top" alt="Biryani and kebabs" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-fire me-2" style="color:#b45f3b;"></i>Paripp Payasam</h5>
+              <p class="card-text">Palada, Paripp</p>
+              <p class="card-text">Price : 240 -  (1 Ltr)</p>
+              <small>Quantity (in Ltr)</small>
+              <!-- <input type="number" class="form-control mb-2" placeholder="1" min="1"> -->
+              <input id="parippCount" type="number" value="1" class="form-control mb-2" placeholder="1" min="1">
+
+              <!-- <span> Ltr</span>   -->
+              <button class="add-order-btn btn btn-primary w-100 d-flex align-items-center justify-content-center" onclick="addToOrderParipp(this,event)"> 
+                <span class="btn-title">Add to Order</span> <i class="bi bi-check-circle fs-5 ms-1"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -243,19 +277,19 @@
     <tr>
       <th scope="row">1</th>
       <td>Onam Sadhya</td>
-      <td>20</td>
+      <td id="summarySadhyaCount">20</td>
       <td>6400</td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Payasam(paripp)</td>
-      <td>2 Ltrs</td>
+      <td id="summaryParippCount">2 Ltrs</td>
       <td>480</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Payasam(Palada)</td>
-      <td>2 Ltrs</td>
+      <td id="summaryPaladaCount">2 Ltrs</td>
       <td>480</td>
     </tr>
   </tbody>
@@ -290,5 +324,6 @@ Total : 7360
   <!-- Bootstrap JS for toggling etc. -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- no extra custom js needed, but we keep it minimal -->
+  <script src="./assets/ordering.js"></script>
 </body>
 </html>
