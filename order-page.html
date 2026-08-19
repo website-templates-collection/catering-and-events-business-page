@@ -210,7 +210,7 @@
               <p class="card-text">Price : 1600 (For 5 people)</p>
               <small>Quantity (No of Meals)</small>
               <!-- <input type="number" class="form-control mb-2" placeholder="Enter quantity (No of Meals)" min="1"> -->
-              <input id="sadhyaCount" type="number" class="form-control mb-2" placeholder="1" min="1" value="1">
+              <input id="sadhyaCount" type="number" class="form-control mb-2" placeholder="0" min="1" value="0">
               <button class="add-order-btn btn btn-primary w-100" onclick="addToOrderSadhya(this,event)">
                 <span class="btn-title">Add to Order</span> <i class="bi bi-check-circle fs-5 ms-1"></i>
               </button>
@@ -228,7 +228,7 @@
               <p class="card-text">Price : 240 -  (1 Ltr)</p>
               <small>Quantity (in Ltr)</small>
               <!-- <input type="number" class="form-control mb-2" placeholder="Enter quantity" min="1"> -->
-              <input id="paladaCount" type="number" class="form-control mb-2" placeholder="1" min="1" value="1">
+              <input id="paladaCount" type="number" class="form-control mb-2" placeholder="0" min="1" value="0">
               <!-- <span> Ltr</span>   -->
               <button class="add-order-btn btn btn-primary w-100" onclick="addToOrderPalada(this,event)">
                 <span class="btn-title">Add to Order</span> <i class="bi bi-check-circle fs-5 ms-1"></i>
@@ -248,7 +248,7 @@
               <p class="card-text">Price : 240 -  (1 Ltr)</p>
               <small>Quantity (in Ltr)</small>
               <!-- <input type="number" class="form-control mb-2" placeholder="1" min="1"> -->
-              <input id="parippCount" type="number" value="1" class="form-control mb-2" placeholder="1" min="1">
+              <input id="parippCount" type="number" value="0" class="form-control mb-2" placeholder="0" min="1">
 
               <!-- <span> Ltr</span>   -->
               <button class="add-order-btn btn btn-primary w-100 d-flex align-items-center justify-content-center" onclick="addToOrderParipp(this,event)"> 
@@ -277,24 +277,44 @@
     <tr>
       <th scope="row">1</th>
       <td>Onam Sadhya</td>
-      <td id="summarySadhyaCount">20</td>
-      <td>6400</td>
+      <td id="summarySadhyaCount">0</td>
+      <td id="sadhyaTotal">0</td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Payasam(paripp)</td>
-      <td id="summaryParippCount">2 Ltrs</td>
-      <td>480</td>
+      <td id="summaryParippCount"><span class="count-value">0</span> Ltrs</td>
+      <td id="parippTotal">0</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Payasam(Palada)</td>
-      <td id="summaryPaladaCount">2 Ltrs</td>
-      <td>480</td>
+      <td id="summaryPaladaCount"><span class="count-value">0</span> Ltrs</td>
+      <td id="paladaTotal">0</td>
     </tr>
   </tbody>
 </table>
-Total : 7360
+<div>Total : <span id="totalAmount">0</span></div>
+<form id="orderForm" action="https://formspree.io/f/mnqvayqj" method="POST">
+  <input type="text" id="customerName" class="form-control mb-2" placeholder="Enter your name">
+  <input type="text" id="customerPlace" class="form-control mb-2" placeholder="Enter your Place of delivery">
+  <div class="d-flex gap-2">
+    <div>
+      <div for="customerDeliveryDate" class="form-labe small mb-0">Delivery Date:</div>
+      <input type="date" id="customerDeliveryDate" class="form-control mb-2" placeholder="Enter delivery date">
+    </div>
+    <div>
+      <div for="customerDeliveryTime" class="form-labe small mb-0">Delivery Time:</div>
+    <input type="time" id="customerDeliveryTime" class="form-control mb-2" placeholder="Enter delivery time">
+    </div>
+  </div>
+  <input type="text" class="form-control mb-2" id="customerPhone" placeholder="Enter your phone number" required>
+  <!-- <button type="submit" class="btn btn-success w-100">Order Now</button> -->
+  <a href="#" id="whatsappOrder" class="btn btn-success">
+    Order via WhatsApp
+</a>
+
+</form>
               <p class="card-text">.</p>
             </div>
           </div>
