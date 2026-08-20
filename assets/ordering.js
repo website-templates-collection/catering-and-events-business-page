@@ -148,3 +148,48 @@ Please confirm my order.`;
     window.open(url, "_blank");
 });
 
+// quantity input button actions
+
+function changeSadhyaQuantity(amount) {
+    const input = document.getElementById("sadhyaCount");
+
+    let value = parseInt(input.value) || 0;
+    value += amount;
+
+    const min = parseInt(input.min) || 0;
+
+    if (value < min) {
+        value = min;
+    }
+
+    input.value = value;
+}
+function changePaladaQuantity(amount) {
+    const input = document.getElementById("paladaCount");
+
+    let value = parseInt(input.value) || 0;
+    value += amount;
+
+    const min = parseInt(input.min) || 0;
+
+    if (value < min) {
+        value = min;
+    }
+
+    input.value = value;
+}
+
+function changeParippQuantity(amount) {
+    const input = document.getElementById("parippCount");
+
+    let value = parseInt(input.value) || 0;
+    value += amount;
+
+    const min = parseInt(input.min) || 0;
+
+    if (value < min) {
+        value = min;
+    }
+
+    input.value = value;
+}
